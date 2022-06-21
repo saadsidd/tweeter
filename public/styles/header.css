@@ -1,0 +1,13 @@
+header {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5em;
+  color: #FFFFFF;
+
+  background-color: #A80000;
+  background-image: url('../images/header-transparent.png');
+}
