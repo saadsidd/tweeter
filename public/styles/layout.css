@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #F4F1EC;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
 }
@@ -24,3 +24,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F4F1EC;
+ }
