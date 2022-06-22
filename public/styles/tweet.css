@@ -2,8 +2,7 @@
   height: 200px;
   background-color: #F4F1EC;
   border: 3px solid #000000;
-
-  margin-top: 50px;
+  margin-top: 40px;
 
   display: flex;
   flex-direction: column;
@@ -25,8 +24,6 @@ article.tweet header {
 
   font-size: 0.8em;
   color: #CECCDA;
-
-  /* background-color: #ff0; */
 }
 
 .avatar-and-name {
@@ -36,8 +33,13 @@ article.tweet header {
   color: #000000;
 }
 
+.avatar-and-name img {
+  width: 40px;
+  height: 40px;
+}
+
 .avatar-and-name div {
-  padding-left: 15px;
+  padding-left: 12px;
 }
 
 .tweet-content {
