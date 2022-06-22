@@ -31,3 +31,8 @@ main {
   margin-right: auto;
   background-color: #F4F1EC;
 }
+
+#tweets-container {
+  width: 100%;
+  margin-top: 50px;
+}
