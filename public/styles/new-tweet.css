@@ -25,7 +25,7 @@
   padding: 3px 15px 3px 15px;
 }
 
-#tweet-text {
+#tweet-text-area {
   background-color: #F4F1EC;
   font-size: 0.74em;
 
@@ -36,7 +36,7 @@
   resize: none;
   outline: none;
   overflow: hidden;
-  padding-bottom: 25px;
+  padding-bottom: 5px;
   margin-top: 5px;
   margin-bottom: 12px;
 }
