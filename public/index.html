@@ -6,24 +6,102 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css" />
 
+    <!-- External Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="/styles/header.css" type="text/css">
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <div id="tweeter-logo">TWEETER</div>
+      <div id="write-a-new-tweet-container">
+        <div><b>Write</b> a new tweet</div>
+        <i class="fa-solid fa-angles-down" style="color: red"></i>
+      </div>
     </nav>
 
+    <header id="profile-header">
+      <div>
+          <img src="/images/profile-hex.png">
+      </div>
+      <div>
+          <span><b>Amy</b> Mansell</span>
+      </div>
+    </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main>
+
+      <section>
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST" id="tweet-form">
+          
+          <div id="tweet-input-container">
+            <label for="tweet-text-area">What are you humming about?</label>
+            <textarea placeholder="Type here" name="text" id="tweet-text-area"></textarea>
+          </div>
+
+          <div id="tweet-button-and-limit-container">
+            <button type="submit" id="tweet-button">TWEET</button>
+            <output name="counter" class="counter" for="tweet-text-area">140</output>
+          </div>
+
+        </form>
+      </section>
+
+      <article class="tweet">
+
+        <header>
+          <div class="avatar-and-name">
+            <img style="width: 40px; height: 40px; background-color: #F4F1EC">
+            <div>Rhoda Jacobs</div>
+          </div>
+
+          <div>@MrsJacobs</div>
+        </header>
+
+        <div class="tweet-content">
+            <!-- MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM -->
+            If I have been further it is by standing on the shoulders of giants and they were very very tall. Seriously how did they even get so tall???
+        </div>
+
+        <footer>
+          <div>10 days ago</div>
+
+          <div class="icons">
+            <i class="fa-solid fa-flag icon"></i>
+            <i class="fa-solid fa-retweet icon"></i>
+            <i class="fa-solid fa-heart icon"></i>
+          </div>
+        </footer>
+
+      </article>
+
+    </main>
+
+    <script>
+      // Temporary, remove later
+      const main = document.getElementsByTagName('main')[0];
+      main.style.height = '800px';
+    </script>
+
   </body>
 </html>
