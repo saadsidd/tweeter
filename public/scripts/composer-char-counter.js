@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     const $counter = $('.counter[for="tweet-text-area"]');
 
-    $($counter).val(140 - $(this).val().length);
+    $counter.val(140 - $(this).val().length);
 
     if (Number($counter.val()) < 0) {
       $counter.css('color', '#FF0000');
