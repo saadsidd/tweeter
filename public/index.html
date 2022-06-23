@@ -52,16 +52,17 @@
     <main>
 
       <section>
-        <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST" id="tweet-form">
           
           <div id="tweet-input-container">
-            <label for="tweet-text-area">What are you humming about?</label>
-            <textarea placeholder="Type here" name="text" id="tweet-text-area"></textarea>
+            <textarea placeholder="What are you humming about?" name="text" id="tweet-text-area"></textarea>
           </div>
 
-          <div id="tweet-button-and-limit-container">
-            <button type="submit" id="tweet-button">TWEET</button>
+          <div id="tweet-button-error-and-limit">
+            <div>
+              <button type="submit">TWEET</button>
+              <label></label>
+            </div>
             <output name="counter" class="counter" for="tweet-text-area">140</output>
           </div>
 

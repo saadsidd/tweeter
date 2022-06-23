@@ -65,7 +65,6 @@ $('document').ready(() => {
       url: '/tweets',
       method: 'GET',
       success: (data) => {
-        console.log(data[data.length - 1]);
         $('#tweets-container').prepend(createTweetElement(data[data.length - 1]));
       }
     });
@@ -77,11 +76,19 @@ $('document').ready(() => {
     event.preventDefault();
 
     const $tweetTextArea = $('#tweet-text-area');
+    $tweetTextArea.val($tweetTextArea.val().trim());
+
+    const $errorLabel = $('#tweet-button-error-and-limit label');
+    $errorLabel.slideUp(100);
+
     if ($tweetTextArea.val() === '') {
-      alert('Tweet cannot be empty!');
+      $errorLabel.html('<i class="fa-solid fa-triangle-exclamation"></i> Tweet cannot be empty!');
+      $errorLabel.slideDown(100);
+      $('.counter[for="tweet-text-area"]').val(140);
 
     } else if ($tweetTextArea.val().length > 140) {
-      alert('Tweet is too long!');
+      $errorLabel.html('<i class="fa-solid fa-triangle-exclamation"></i> Tweet is too long!');
+      $errorLabel.slideDown(100);
 
     } else {
       $.ajax({
@@ -90,9 +97,11 @@ $('document').ready(() => {
         data: $(this).serialize(),
         success: () => {
           prependSubmittedTweet();
+          $('.counter[for="tweet-text-area"]').val(140);
         }
       });
 
+      // Empty input field once tweet is submitted
       $tweetTextArea.val('');
     }
   });
