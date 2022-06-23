@@ -8,7 +8,7 @@ $(document).ready(function() {
     if (Number($counter.val()) < 0) {
       $counter.css('color', '#FF0000');
     } else {
-      $counter.css('color', '#000000');
+      $counter.css('color', '#545149');
     }
 
   });
