@@ -1,7 +1,7 @@
 .tweet {
   height: 200px;
   background-color: #F4F1EC;
-  border: 3px solid #000000;
+  border: 3px solid;
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -13,7 +13,7 @@
 }
 
 .tweet:hover {
-  box-shadow: 5px 5px #CECCDA;
+  box-shadow: 7px 7px #CECCDA;
 }
 
 article.tweet header {
@@ -24,14 +24,16 @@ article.tweet header {
   padding: 15px 20px 0px 20px;
 
   font-size: 0.8em;
-  color: #CECCDA;
+  font-weight: bolder;
+  color: #c1bdda;
 }
 
 .avatar-and-name {
   display: flex;
   align-items: center;
 
-  color: #000000;
+  font-weight: normal;
+  color: #000;
 }
 
 .avatar-and-name img {
@@ -56,7 +58,7 @@ article.tweet footer {
 
   margin: 0px 10px 15px 10px;
   padding: 7px 20px 0px 20px;
-  border-top: 3px solid #000000;
+  border-top: 3px solid;
 
   font-size: 0.6em;
 }
