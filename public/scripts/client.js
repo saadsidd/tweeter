@@ -16,7 +16,7 @@ const createTweetElement = function(data) {
       <div>${data.user.handle}</div>
     </header>
 
-    <div class="tweet-content">${data.content.text}</div>
+    <div class="tweet-content">${esc(data.content.text)}</div>
 
     <footer>
       <div>${timeago.format(data.created_at)}</div>
@@ -28,6 +28,13 @@ const createTweetElement = function(data) {
     </footer>
   </article>
   `;
+};
+
+// Convert tweet text using createTextNode to avoid XSS
+const esc = function(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 };
 
 // Loops through tweets from database and renders them all on page
