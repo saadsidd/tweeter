@@ -1,6 +1,8 @@
 #tweet-form {
   display: flex;
   flex-direction: column;
+  
+  margin-top: 30px;
 }
 
 #tweet-input-container {
@@ -9,20 +11,28 @@
   justify-content: space-evenly;
 }
 
-#tweet-button-and-limit-container {
+#tweet-button-error-and-limit {
   display: flex;
   justify-content: space-between;
 
   font-family: 'Bungee', cursive;
 }
 
-#tweet-button {
+#tweet-button-error-and-limit button {
   background-color: #4056A1;
   color: #FFFFFF;
   font-size: 20px;
 
   border: none;
+  border-radius: 5px;
   padding: 3px 15px 3px 15px;
+}
+
+#tweet-button-error-and-limit label {
+  color: #F00;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.8em;
+  padding-left: 30px;
 }
 
 #tweet-text-area {
@@ -31,11 +41,25 @@
 
   border-style: none none solid none;
   border-bottom-width: 4px;
-  border-bottom-color: #000000;
 
   resize: none;
   outline: none;
   padding-bottom: 5px;
   margin-top: 5px;
   margin-bottom: 12px;
+}
+
+#tweet-text-area::-webkit-input-placeholder {
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+#tweet-text-area::-moz-placeholder {
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+#tweet-text-area::-ms-input-placeholder {
+  font-size: x-large;
+  font-weight: bolder;
 }
