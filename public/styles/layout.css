@@ -21,15 +21,12 @@ body {
   font-size: 1.5em;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 main {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   background-color: #F4F1EC;
+  padding-bottom: 60px;
 }
 
 #tweets-container {
@@ -37,6 +34,29 @@ main {
   margin-top: 50px;
 }
 
+#to-top-button {
+  width: 75px;
+  height: 75px;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #F00;
+  color: #FFF;
+  font-size: xx-large;
+}
+
+#to-top-button:hover {
+  background-color: #D00;
+}
+
+/* For desktops */
 @media only screen and (min-width: 1024px) {
   #header-and-main-container {
     display: flex;
@@ -48,7 +68,6 @@ main {
 
   main {
     width: 65%;
-    /* background-color: red; */
     margin-left: initial;
     margin-right: initial;
   }
