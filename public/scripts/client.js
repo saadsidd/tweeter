@@ -24,7 +24,7 @@ const createTweetElement = function(data) {
   `;
 };
 
-// Convert tweet text using createTextNode to avoid XSS
+// Convert tweet body content using createTextNode to avoid XSS
 const esc = function(str) {
   const div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -54,8 +54,8 @@ $('document').ready(() => {
   // Render tweets whenever page is loaded/refreshed
   loadTweets(renderTweets);
 
-  // Form submit event listener
-  // Error if empty tweet or tweet too long
+  // Event listener for form submission
+  // Shows error if empty tweet or tweet too long
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
 
@@ -64,13 +64,14 @@ $('document').ready(() => {
     $tweetTextArea.val($tweetTextArea.val().trim());
 
     const $errorLabel = $('#tweet-button-error-and-limit label');
+    // Initially hide error message on every form submit
     $errorLabel.slideUp(100);
 
     if ($tweetTextArea.val() === '') {
       $errorLabel.html('<i class="fa-solid fa-triangle-exclamation"></i> Tweet cannot be empty!');
       $errorLabel.slideDown(100);
       $tweetTextArea.focus();
-      // Setting counter to 140 in case trimming whitespace resulted in empty tweet
+      // Setting counter to 140 here in case trimming whitespace resulted in empty tweet
       $('.counter[for="tweet-text-area"]').val(140);
 
     } else if ($tweetTextArea.val().length > 140) {
@@ -79,8 +80,8 @@ $('document').ready(() => {
       $tweetTextArea.focus();
 
     } else {
-      // Handling valid non-empty/below-140 tweet POST request by prepending new tweet to
-      // #tweets-container, emptying textarea, and setting counter back to 140
+      // Handling valid non-empty/below-140 tweet POST request by prepending new
+      // tweet to #tweets-container, emptying textarea, and setting counter back to 140
       $.ajax({
         url: '/tweets',
         method: 'POST',
@@ -95,4 +96,5 @@ $('document').ready(() => {
       });
     }
   });
+  
 });
