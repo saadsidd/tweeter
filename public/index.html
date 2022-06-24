@@ -30,7 +30,7 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+
     <nav>
       <div id="tweeter-logo">TWEETER</div>
       <div id="write-a-new-tweet-container">
@@ -39,39 +39,38 @@
       </div>
     </nav>
 
-    <header id="profile-header">
-      <div>
-          <img id="profile-hex" src="/images/profile-hex.png">
-      </div>
-      <div>
-          <span><b>Amy</b> Mansell</span>
-      </div>
-    </header>
+    <!-- For flex row when wider than 1024 (desktop) -->
+    <div id="header-and-main-container">
 
-    <!-- Page-specific (main) content here -->
-    <main>
+      <header id="profile-header">
+        <div>
+            <img id="profile-hex" src="/images/profile-hex.png">
+        </div>
+        <div>
+            <span><b>Amy</b> Mansell</span>
+        </div>
+      </header>
 
-      <section>
-        <form action="/tweets" method="POST" id="tweet-form">
-          
-          <div id="tweet-input-container">
-            <textarea placeholder="What are you humming about?" name="text" id="tweet-text-area"></textarea>
-          </div>
-
-          <div id="tweet-button-error-and-limit">
-            <div>
-              <button type="submit">TWEET</button>
-              <label></label>
+      <main>
+        <section>
+          <form action="/tweets" method="POST" id="tweet-form">
+            <div id="tweet-input-container">
+              <textarea placeholder="What are you humming about?" name="text" id="tweet-text-area"></textarea>
             </div>
-            <output name="counter" class="counter" for="tweet-text-area">140</output>
-          </div>
+            <div id="tweet-button-error-and-limit">
+              <div>
+                <button type="submit">TWEET</button>
+                <label></label>
+              </div>
+              <output name="counter" class="counter" for="tweet-text-area">140</output>
+            </div>
+          </form>
+        </section>
 
-        </form>
-      </section>
+        <div id="tweets-container"></div>
+      </main>
 
-      <div id="tweets-container"></div>
-
-    </main>
+    </div>
 
   </body>
 </html>

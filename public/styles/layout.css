@@ -36,3 +36,20 @@ main {
   width: 100%;
   margin-top: 50px;
 }
+
+@media only screen and (min-width: 1024px) {
+  #header-and-main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    padding-top: 120px;
+  }
+
+  main {
+    width: 65%;
+    /* background-color: red; */
+    margin-left: initial;
+    margin-right: initial;
+  }
+}
