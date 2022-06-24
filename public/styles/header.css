@@ -19,12 +19,12 @@
   height: 175px;
 }
 
+/* For desktops */
 @media only screen and (min-width: 1024px) {
   #profile-header {
     width: 30%;
     height: auto;
-    padding-top: 120px;
+    padding-top: 60px;
     justify-content: flex-start;
-    /* background-color: blue; */
   }
 }
