@@ -1,10 +1,4 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Creates identical new tweet from following string template
+// Returns string template below filled in with new tweet data
 const createTweetElement = function(data) {
   return `
   <article class="tweet">
@@ -45,37 +39,28 @@ const renderTweets = function(tweets) {
   }
 };
 
+// AJAX/EventListener for only when DOM is fully loaded
 $('document').ready(() => {
 
+  const loadTweets = function(successCallback) {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: (data) => {
+        successCallback(data);
+      }
+    });
+  };
   // Render tweets whenever page is loaded/refreshed
-  const loadTweets = function() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      success: (data) => {
-        renderTweets(data);
-      }
-    });
-  };
-  loadTweets();
-
-  // For attaching newly submitted tweet to #tweets-container
-  const prependSubmittedTweet = function() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      success: (data) => {
-        $('#tweets-container').prepend(createTweetElement(data[data.length - 1]));
-      }
-    });
-  };
+  loadTweets(renderTweets);
 
   // Form submit event listener
-  // Error if empty tweet and tweet too long
+  // Error if empty tweet or tweet too long
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
 
     const $tweetTextArea = $('#tweet-text-area');
+    // Remove whitepace from both ends of tweet
     $tweetTextArea.val($tweetTextArea.val().trim());
 
     const $errorLabel = $('#tweet-button-error-and-limit label');
@@ -84,25 +69,30 @@ $('document').ready(() => {
     if ($tweetTextArea.val() === '') {
       $errorLabel.html('<i class="fa-solid fa-triangle-exclamation"></i> Tweet cannot be empty!');
       $errorLabel.slideDown(100);
+      $tweetTextArea.focus();
+      // Setting counter to 140 in case trimming whitespace resulted in empty tweet
       $('.counter[for="tweet-text-area"]').val(140);
 
     } else if ($tweetTextArea.val().length > 140) {
       $errorLabel.html('<i class="fa-solid fa-triangle-exclamation"></i> Tweet is too long!');
       $errorLabel.slideDown(100);
+      $tweetTextArea.focus();
 
     } else {
+      // Handling valid non-empty/below-140 tweet POST request by prepending new tweet to
+      // #tweets-container, emptying textarea, and setting counter back to 140
       $.ajax({
         url: '/tweets',
         method: 'POST',
         data: $(this).serialize(),
         success: () => {
-          prependSubmittedTweet();
+          loadTweets((data) => {
+            $('#tweets-container').prepend(createTweetElement(data[data.length - 1]));
+          });
+          $tweetTextArea.val('');
           $('.counter[for="tweet-text-area"]').val(140);
         }
       });
-
-      // Empty input field once tweet is submitted
-      $tweetTextArea.val('');
     }
   });
 });
