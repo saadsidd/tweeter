@@ -20,7 +20,27 @@ nav {
 
 #write-a-new-tweet-container {
   margin-right: 1.5em;
+  cursor: pointer;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.fa-solid.fa-angles-down {
+  color: red;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+
+  animation-name: floating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+}
+
+@keyframes floating {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(10px);}
+  100% {transform: translateY(0px);}
 }
